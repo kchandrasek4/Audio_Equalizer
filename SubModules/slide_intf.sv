@@ -1,0 +1,81 @@
+module slide_intf(clk, rst_n, MISO, SS_n, SCLK, MOSI, POT_LP, POT_B1, POT_B2, POT_B3, POT_HP, VOLUME);
+
+	input logic clk, rst_n, MISO;
+	output logic SS_n, SCLK, MOSI;
+	output logic[11:0] POT_LP, POT_B1, POT_B2, POT_B3, POT_HP, VOLUME;
+	//input logic cnv_cmplt;
+	//output logic strt_cnv;
+
+	typedef enum logic {SELECT_CHNL, CONVERT} state_t;
+	state_t state, nxt_state;
+
+	logic [2:0] cntr;
+	logic skip, cntr_en, strt_cnv, cnv_cmplt;
+	logic POT_LP_en, POT_B1_en, POT_B2_en, POT_B3_en, POT_HP_en, VOLUME_en;
+	logic [11:0] res;
+
+	A2D_intf A2D_interface(.clk(clk), .rst_n(rst_n), .strt_cnv(strt_cnv), .chnnl(cntr), .a2d_SS_n(SS_n), .SCLK(SCLK), .MOSI(MOSI), .MISO(MISO), .res(res), .cnv_cmplt(cnv_cmplt));
+	
+	always_ff@(posedge clk, negedge rst_n)
+		if(!rst_n)
+			state <= SELECT_CHNL;
+		else
+			state <= nxt_state;
+
+	always_ff@(posedge clk, negedge rst_n)
+		if(!rst_n)
+			cntr <= 0;
+		else if(cntr_en)
+			cntr <= cntr+1;
+
+	always_comb begin
+		cntr_en = 0;
+		strt_cnv = 0;
+		nxt_state = state;
+
+		case(state)
+		SELECT_CHNL:  
+				if(!skip & rst_n) begin
+					nxt_state = CONVERT;
+					strt_cnv = 1'b1;
+				end
+				else
+					cntr_en = 1;
+		CONVERT:
+				if(cnv_cmplt) begin
+					nxt_state = SELECT_CHNL;
+					cntr_en = 1;
+				end
+		endcase
+	end
+	
+	assign skip = (cntr == 3'b101) || (cntr == 3'b110);
+
+	// Enable Signals for Holding Registers
+	assign POT_LP_en = (cntr == 3'b001) & cnv_cmplt & ~strt_cnv;
+	assign POT_B1_en = (cntr == 3'b000) & cnv_cmplt & ~strt_cnv;
+	assign POT_B2_en = (cntr == 3'b100) & cnv_cmplt & ~strt_cnv;
+	assign POT_B3_en = (cntr == 3'b010) & cnv_cmplt & ~strt_cnv;
+	assign POT_HP_en = (cntr == 3'b011) & cnv_cmplt & ~strt_cnv;
+	assign VOLUME_en = (cntr == 3'b111) & cnv_cmplt & ~strt_cnv;
+
+	// Holding Registers
+	always_ff@(posedge clk, negedge rst_n) begin
+		if(!rst_n) begin
+			POT_LP <= 0;
+			POT_B1 <= 0;
+			POT_B2 <= 0;
+			POT_B3 <= 0;
+			POT_HP <= 0;
+			VOLUME <= 0;
+		end
+
+		else if(POT_LP_en) POT_LP <= res;
+		else if(POT_B1_en) POT_B1 <= res;
+		else if(POT_B2_en) POT_B2 <= res;
+		else if(POT_B3_en) POT_B3 <= res;
+		else if(POT_HP_en) POT_HP <= res;
+		else if(VOLUME_en) VOLUME <= res;
+	end
+
+endmodule

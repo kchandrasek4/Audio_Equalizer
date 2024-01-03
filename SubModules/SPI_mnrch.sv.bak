@@ -1,0 +1,95 @@
+module SPI_mnrch(clk, rst_n, snd, cmd, MISO, 
+		SS_n, SCLK, MOSI, done, resp );
+
+	input clk, rst_n, snd, MISO;
+	input [15:0] cmd;
+	
+	output logic done, SS_n, SCLK, MOSI;
+	output logic [15:0] resp;
+
+	typedef enum {IDLE, ACTIVE, END} state_t;
+	state_t state, nxt_state; 
+
+	logic init, full, shft, ld_SCLK, set_done, done16;
+	logic [15:0] sreg;
+
+	// Data shift register.
+	SPI_data_shreg shftReg(.clk(clk), .init(init), .shft(shft), .cmd(cmd), .MISO(MISO), .shft_reg(sreg));
+
+	// 2 clks after SCLK rise, shift MOSI. MSB goes out to the serf. MISO is inserted in the LSB. After 16 cycles, done16 is asserted. At this point, all data is sent from monarch. Tx complete.
+	bit_cntr5 cntr(.clk(clk), .shift(shft), .init(init), .done16(done16));
+	
+	// Produce SCLK (1/32 th CLK). Basically, have a counter that counts up every clk edge. MSB of this counter is SCLK. 
+	SCLK_div clk_div(.clk(clk), .rst_n(rst_n),.ld_SCLK(ld_SCLK), .SCLK(SCLK), .shft(shft), .full(full));
+
+	always_ff@(posedge clk, negedge rst_n) begin
+		if(!rst_n)
+			state <= IDLE;
+		else
+			state <= nxt_state;
+	end
+
+
+	// Next state & output logic
+	always_comb begin
+
+		// default outputs
+		nxt_state = state;
+		set_done = 0;
+		ld_SCLK = 1;
+		init = 0;
+
+		resp = sreg;
+		MOSI = sreg[15];
+
+		case(state)
+		    IDLE: if(snd) begin
+				nxt_state = ACTIVE;
+				init = 1;
+				ld_SCLK = 0;
+			  end
+			  else begin
+				
+			  end
+				// Wait until all data is sent/received. This takes 16 SCLKs. 
+		    ACTIVE: if(done16) begin
+				nxt_state = END;
+				ld_SCLK = 0;
+			    end
+			    else begin
+				ld_SCLK = 0;
+			    end
+		
+			// What is this state? Why is it needed?
+			// Once the data is transmitted/received, we don't want to raise SS_n immediately. Instead, we want to hold SS_n low for sometime and then raise it (back porch).
+		    END: if(full) begin
+				nxt_state = IDLE;
+				set_done = 1;
+				ld_SCLK = 1;
+			 end
+			 else begin
+				ld_SCLK = 0;
+			 end
+		    default: nxt_state = IDLE;
+		endcase
+	end
+
+	// Flop SS_n and done signals. These must not glitch.
+	always@(posedge clk, negedge rst_n) begin
+		if(!rst_n) begin
+			SS_n <= '1;
+			done <= 0;
+		end
+		else begin
+			if(snd) begin
+				SS_n <= 1'b0;
+				done <= 1'b0;
+			end
+			else if(set_done) begin
+				done <= 1'b1;
+				SS_n <= 1'b1;
+			end
+		end
+	end
+
+endmodule

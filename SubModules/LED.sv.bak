@@ -1,0 +1,7 @@
+module LED(clk,rst_n,lft,rht,LED);
+	input clk,rst_n;
+	
+	input [15:0] lft, rht;
+	
+	output [7:0] LED;
+endmodule

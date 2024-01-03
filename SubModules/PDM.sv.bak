@@ -1,0 +1,42 @@
+module PDM(clk, rst_n, duty, PDM, PDM_n);
+
+	// Circuit to generate PDM. PDM distributes pulses over the duty cycle unlike PWM which keeps the pulse high for DC and low for 1-DC. As a result, PDM has HF components and LF noise can be easily filtered. 
+	input logic clk, rst_n;
+	input logic [15:0] duty;
+	output logic PDM, PDM_n;
+
+	logic [15:0] flop1, flop2, mux_out, f1_BminusA, f2_AplusB;
+	logic a_gte_b;
+	
+	always_ff@(posedge clk, negedge rst_n) begin
+		if(!rst_n)
+			flop1 <= 0;
+		else
+			flop1 <= duty;
+	end
+
+	assign mux_out_B = (a_gte_b)? '1:'0;
+	assign f1_BminusA = mux_out_B - flop1;
+	assign f2_AplusB = flop2 + f1_BminusA;
+	
+	always_ff@(posedge clk, negedge rst_n) begin
+		if(!rst_n)
+			flop2 <= 0;
+		else
+			flop2 <= f2_AplusB;
+	end
+
+	assign a_gte_b = (flop1 >= flop2);
+
+	always_ff@(posedge clk, negedge rst_n) begin
+		if(!rst_n) begin
+			PDM <= '0;
+			PDM_n <= '1;
+		end
+		else begin
+			PDM <= a_gte_b;
+			PDM_n <= ~a_gte_b;
+		end
+	end
+
+endmodule
