@@ -1,0 +1,302 @@
+/filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/SPI_ADC128S.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/SPI_ADC128S.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module SPI_ADC128S
+
+Top level modules:
+	SPI_ADC128S
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_B2.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_B2.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_B2
+
+Top level modules:
+	ROM_B2
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/cmdROM.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/cmdROM.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module cmdROM
+
+Top level modules:
+	cmdROM
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_B3.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_B3.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_B3
+
+Top level modules:
+	ROM_B3
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/UART.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/UART.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module UART
+
+Top level modules:
+	UART
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_HP.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_HP.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_HP
+
+Top level modules:
+	ROM_HP
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/ADC128S.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/ADC128S.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ADC128S
+
+Top level modules:
+	ADC128S
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/ADC128S.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/ADC128S.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ADC128S
+
+Top level modules:
+	ADC128S
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/RN52.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/RN52.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module RN52
+
+Top level modules:
+	RN52
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/A2D_with_Pots.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/A2D_with_Pots.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module A2D_with_Pots
+
+Top level modules:
+	A2D_with_Pots
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_B1.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_B1.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_B1
+
+Top level modules:
+	ROM_B1
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/resp_ROM.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/resp_ROM.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module resp_ROM
+
+Top level modules:
+	resp_ROM
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/A2D_with_Pots.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/A2D_with_Pots.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module A2D_with_Pots
+
+Top level modules:
+	A2D_with_Pots
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_B2.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_B2.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_B2
+
+Top level modules:
+	ROM_B2
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/dualPort1536x16.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/dualPort1536x16.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module dualPort1536x16
+
+Top level modules:
+	dualPort1536x16
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/dualPort1024x16.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/dualPort1024x16.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module dualPort1024x16
+
+Top level modules:
+	dualPort1024x16
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/tone_ROM_lft.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/tone_ROM_lft.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module tone_ROM_lft
+
+Top level modules:
+	tone_ROM_lft
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/LED.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/LED.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module LED
+
+Top level modules:
+	LED
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/rst_synch.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/rst_synch.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module rst_synch
+
+Top level modules:
+	rst_synch
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_B3.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_B3.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_B3
+
+Top level modules:
+	ROM_B3
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/dualPort1024x16.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/dualPort1024x16.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module dualPort1024x16
+
+Top level modules:
+	dualPort1024x16
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/dualPort1536x16.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/dualPort1536x16.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module dualPort1536x16
+
+Top level modules:
+	dualPort1536x16
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_LP.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_LP.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_LP
+
+Top level modules:
+	ROM_LP
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/frequency_calculator.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/frequency_calculator.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module frequency_calculator
+
+Top level modules:
+	frequency_calculator
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/cmdROM.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/cmdROM.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module cmdROM
+
+Top level modules:
+	cmdROM
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/Inverse_PDM.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/Inverse_PDM.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module Inverse_PDM
+
+Top level modules:
+	Inverse_PDM
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_HP.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_HP.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_HP
+
+Top level modules:
+	ROM_HP
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/Inverse_PDM.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/Inverse_PDM.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module Inverse_PDM
+
+Top level modules:
+	Inverse_PDM
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/UART.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/UART.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module UART
+
+Top level modules:
+	UART
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/Equalizer_post_syn_tb.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/Equalizer_post_syn_tb.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module Equalizer_tb
+
+Top level modules:
+	Equalizer_tb
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/resp_ROM.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/resp_ROM.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module resp_ROM
+
+Top level modules:
+	resp_ROM
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/Equalizer.vg {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/Equalizer.vg
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module Equalizer
+
+Top level modules:
+	Equalizer
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/tone_ROM_rght.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/tone_ROM_rght.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module tone_ROM_rght
+
+Top level modules:
+	tone_ROM_rght
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/tone_ROM_lft.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/tone_ROM_lft.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module tone_ROM_lft
+
+Top level modules:
+	tone_ROM_lft
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/LED.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/LED.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module LED
+
+Top level modules:
+	LED
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/rst_synch.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/rst_synch.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module rst_synch
+
+Top level modules:
+	rst_synch
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/tone_ROM_rght.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/tone_ROM_rght.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module tone_ROM_rght
+
+Top level modules:
+	tone_ROM_rght
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/RN52.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/TestBench/RN52.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module RN52
+
+Top level modules:
+	RN52
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/I2S_Mnrch.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/I2S_Mnrch.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module I2S_Mnrch
+
+Top level modules:
+	I2S_Mnrch
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_LP.v {1 {vlog -work work -vopt -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/SubModules/ROM_LP.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_LP
+
+Top level modules:
+	ROM_LP
+
+} {} {}} /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/SPI_ADC128S.sv {1 {vlog -work work -vopt -sv -stats=none /filespace/s/szhou359/Documents/ece551/Project_private/Backup-26-Apr-9PM/Project/TestBench/SPI_ADC128S.sv
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module SPI_ADC128S
+
+Top level modules:
+	SPI_ADC128S
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_B1.v {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/SubModules/ROM_B1.v
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module ROM_B1
+
+Top level modules:
+	ROM_B1
+
+} {} {}} /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/syn/Equalizer.vg {1 {vlog -work work -vopt -stats=none /filespace/b/bsuresh2/Downloads/Project_syn_27-Apr/syn/Equalizer.vg
+QuestaSim vlog 2021.2_2 Compiler 2021.06 Jun 19 2021
+-- Compiling module Equalizer
+
+Top level modules:
+	Equalizer
+
+} {} {}}

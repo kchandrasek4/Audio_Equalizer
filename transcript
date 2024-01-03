@@ -1,0 +1,53 @@
+# Compile of Equalizer.sv was successful.
+# Compile of Equalizer.sv was successful.
+# Compile of A2D_intf.sv was successful.
+# Compile of bit_cntr5.sv was successful.
+# Compile of BT_intf.sv was successful.
+# Compile of FIR_B1.sv was successful.
+# Compile of FIR_B2.sv was successful.
+# Compile of FIR_B3.sv was successful.
+# Compile of FIR_HP.sv was successful.
+# Compile of FIR_LP.sv was successful.
+# Compile of I2S_Serf.sv was successful.
+# Compile of PDM.sv was successful.
+# Compile of rst_synch.sv was successful.
+# Compile of SCLK_div.sv was successful.
+# Compile of slide_intf.sv was successful.
+# Compile of SPI_data_shreg.sv was successful.
+# Compile of SPI_mnrch.sv was successful.
+# Compile of spkr_drv.sv was successful.
+# Compile of Equalizer_tb.sv failed with 3 errors.
+# Compile of band_scale.sv was successful.
+# Compile of EQ_engine.sv was successful.
+# Compile of A2D_with_Pots.sv was successful.
+# Compile of ADC128S.sv was successful.
+# Compile of RN52.sv was successful.
+# Compile of SPI_ADC128S.sv was successful.
+# Compile of UART.sv was successful.
+# Compile of ROM_B1.v was successful.
+# Compile of ROM_B2.v was successful.
+# Compile of ROM_B3.v was successful.
+# Compile of ROM_HP.v was successful.
+# Compile of ROM_LP.v was successful.
+# Compile of low_freq_queue.sv was successful.
+# Compile of high_freq_queue.sv was successful.
+# Compile of resp_ROM.v was successful.
+# Compile of dualPort1024x16.v was successful.
+# Compile of dualPort1536x16.v was successful.
+# Compile of LED.sv was successful.
+# Compile of PB_release.sv was successful.
+# Compile of tone_ROM_lft.v was successful.
+# Compile of tone_ROM_rght.v was successful.
+# Compile of snd_cmd.sv was successful.
+# Compile of cmdROM.v was successful.
+# Compile of I2S_Mnrch.sv was successful.
+# Compile of frequency_calculator.sv was successful.
+# Compile of Inverse_PDM.sv was successful.
+# Compile of tb_tasks.sv was successful.
+# Compile of amplitude_calculator.sv was successful.
+# 46 compiles, 1 failed with 3 errors.
+# Compile of Equalizer_tb.sv failed with 2 errors.
+# Compile of Equalizer_tb.sv failed with 2 errors.
+# Compile of Equalizer_tb.sv failed with 2 errors.
+# Compile of Equalizer_tb.sv failed with 2 errors.
+# Compile of Equalizer_tb.sv was successful.
