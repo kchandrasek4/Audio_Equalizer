@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Apr 29 17:25:01 2023
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : slide_intf_test
+Top-level Entity Name : Equalizer
+Family : Cyclone IV E
+Device : EP4CE22F17C6
+Timing Models : Final
+Total logic elements : 300 / 22,320 ( 1 % )
+    Total combinational functions : 282 / 22,320 ( 1 % )
+    Dedicated logic registers : 195 / 22,320 ( < 1 % )
+Total registers : 195
+Total pins : 28 / 154 ( 18 % )
+Total virtual pins : 0
+Total memory bits : 0 / 608,256 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 132 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

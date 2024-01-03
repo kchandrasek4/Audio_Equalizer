@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sat Apr 29 17:24:49 2023
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : slide_intf_test
+Top-level Entity Name : Equalizer
+Family : Cyclone IV E
+Total logic elements : 306
+    Total combinational functions : 281
+    Dedicated logic registers : 195
+Total registers : 195
+Total pins : 28
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
