@@ -1,0 +1,137 @@
+module Equalizer_tb();
+
+import tb_tasks::*;
+
+reg clk,RST_n;
+reg Flt_n;
+slide_pots_t pots;
+BT_buttons_t buttons;
+//reg [11:0] LP,B1,B2,B3,HP,VOL;
+
+wire [7:0] LED;
+wire ADC_SS_n,ADC_MOSI,ADC_MISO,ADC_SCLK;
+wire I2S_data,I2S_ws,I2S_sclk;
+wire cmd_n,RX_TX,TX_RX;
+wire lft_PDM,rght_PDM;
+wire lft_PDM_n,rght_PDM_n;
+
+logic [20:0] clk_counter_lft, clk_counter_rght;
+logic counter_vld_lft, counter_vld_rght;
+wire duty_vld_lft, duty_vld_rght;
+logic amplitude_vld_lft, amplitude_vld_rght;
+logic [15:0] duty_infered_lft, duty_infered_rght;
+logic [15:0] peak_lft, peak_rght;
+
+wire rst_n;
+//////////////////////
+// Instantiate DUT //
+////////////////////
+Equalizer iDUT(.clk(clk),.RST_n(RST_n),.LED(LED),.ADC_SS_n(ADC_SS_n),
+                .ADC_MOSI(ADC_MOSI),.ADC_SCLK(ADC_SCLK),.ADC_MISO(ADC_MISO),
+                .I2S_data(I2S_data),.I2S_ws(I2S_ws),.I2S_sclk(I2S_sclk),.cmd_n(cmd_n),
+				.sht_dwn(sht_dwn),.lft_PDM(lft_PDM),.rght_PDM(rght_PDM),
+				.lft_PDM_n(lft_PDM_n),.rght_PDM_n(rght_PDM_n),.Flt_n(Flt_n),
+				.next_n(buttons.next_n),.prev_n(buttons.prev_n),.RX(RX_TX),.TX(TX_RX));
+	
+
+rst_synch iRST(.clk(clk),.RST_n(RST_n),.rst_n(rst_n));
+//////////////////////////////////////////
+// Instantiate model of RN52 BT Module //
+////////////////////////////////////////	
+//RN52 iRN52(.clk(clk),.RST_n(rst_n),.cmd_n(1'b1),.RX(1'b1),.TX(RX_TX),.I2S_sclk(I2S_sclk),
+//           .I2S_data(I2S_data),.I2S_ws(I2S_ws));
+
+
+RN52 iRN52(.clk(clk),.RST_n(rst_n),.cmd_n(cmd_n),.RX(TX_RX),.TX(RX_TX),.I2S_sclk(I2S_sclk),
+           .I2S_data(I2S_data),.I2S_ws(I2S_ws));
+
+
+//////////////////////////////////////////////
+// Instantiate model of A2D and Slide Pots //
+////////////////////////////////////////////		   
+A2D_with_Pots iPOTs(.clk(clk),.rst_n(rst_n),.SS_n(ADC_SS_n),.SCLK(ADC_SCLK),.MISO(ADC_MISO),
+                    .MOSI(ADC_MOSI),.LP(pots.LP),.B1(pots.B1),.B2(pots.B2),.B3(pots.B3),.HP(pots.HP),.VOL(pots.VOL));
+					
+					
+frequency_calculator ifreq_cal_lft(.clk(clk),.rst_n(rst_n),.duty_cycle(duty_infered_lft),.duty_cycle_vld(duty_vld_lft),
+								.counter_vld(counter_vld_lft),.clk_counter(clk_counter_lft));	
+
+frequency_calculator ifreq_cal_rght(.clk(clk),.rst_n(rst_n),.duty_cycle(duty_infered_rght),.duty_cycle_vld(duty_vld_rght),
+								.counter_vld(counter_vld_rght),.clk_counter(clk_counter_rght));	
+
+amplitude_calculator iampl_cal_lft(.clk(clk),.rst_n(rst_n),.duty_cycle(duty_infered_lft),.duty_cycle_vld(duty_vld_lft),
+								.amplitude_vld(amplitude_vld_lft),.peak(peak_lft));
+amplitude_calculator iampl_cal_rght(.clk(clk),.rst_n(rst_n),.duty_cycle(duty_infered_rght),.duty_cycle_vld(duty_vld_rght),
+								.amplitude_vld(amplitude_vld_rght),.peak(peak_rght));
+
+Inverse_PDM invPDM_lft(.clk(clk), .rst_n(rst_n), .PDM(lft_PDM), .duty(duty_infered_lft), .done(duty_vld_lft));
+Inverse_PDM invPDM_rght(.clk(clk), .rst_n(rst_n), .PDM(rght_PDM), .duty(duty_infered_rght), .done(duty_vld_rght));
+
+
+
+			
+initial begin
+	//This is where your magic occurs
+	// Start clk pulse generation.
+	clk = 0;
+
+	// Initialise device
+	init(clk, RST_n, pots, buttons);
+
+	// Test Case 1: Preserve LP (unity gain); attenuate all other bands
+
+	band_check(.pots(pots), .clk(clk), .clk_counter_lft(clk_counter_lft), .clk_counter_rght(clk_counter_rght), .counter_vld_lft(counter_vld_lft), .counter_vld_rght(counter_vld_rght), 
+	.band_to_check(LP), .start(iDUT.seq_low), .smpl_vld(iDUT.vld));
+
+	// Test Case 2: Preserve B1 (unity gain); attenuate all other bands
+	band_check(.pots(pots), .clk(clk), .clk_counter_lft(clk_counter_lft), .clk_counter_rght(clk_counter_rght), .counter_vld_lft(counter_vld_lft), .counter_vld_rght(counter_vld_rght), 
+	.band_to_check(B1), .start(iDUT.seq_low), .smpl_vld(iDUT.vld));
+
+	
+	
+	// Test Case 3: Preserve B2 (unity gain); attenuate all other bands
+	band_check(.pots(pots), .clk(clk), .clk_counter_lft(clk_counter_lft), .clk_counter_rght(clk_counter_rght), .counter_vld_lft(counter_vld_lft), .counter_vld_rght(counter_vld_rght), 
+	.band_to_check(B2), .start(iDUT.seq_low), .smpl_vld(iDUT.vld));
+
+	
+
+	// Test Case 4: Preserve B3 (unity gain); attenuate all other bands
+	band_check(.pots(pots), .clk(clk), .clk_counter_lft(clk_counter_lft), .clk_counter_rght(clk_counter_rght), .counter_vld_lft(counter_vld_lft), .counter_vld_rght(counter_vld_rght), 
+	.band_to_check(B3), .start(iDUT.seq_low), .smpl_vld(iDUT.vld));
+
+	// Test Case 5: Preserve HP (unity gain); attenuate all other bands
+	band_check(.pots(pots), .clk(clk), .clk_counter_lft(clk_counter_lft), .clk_counter_rght(clk_counter_rght), .counter_vld_lft(counter_vld_lft), .counter_vld_rght(counter_vld_rght), 
+	.band_to_check(HP), .start(iDUT.seq_low), .smpl_vld(iDUT.vld));
+
+
+	vol_check(.pots(pots), .clk(clk), .peak_lft(peak_lft), .peak_rght(peak_rght), .amplitude_vld_lft(amplitude_vld_lft), .amplitude_vld_rght(amplitude_vld_rght), 
+	.band_to_check(B2), .start(iDUT.seq_low), .smpl_vld(iDUT.vld));
+
+	pot_check(.pots(pots), .clk(clk), .peak_lft(peak_lft), .peak_rght(peak_rght), .amplitude_vld_lft(amplitude_vld_lft), .amplitude_vld_rght(amplitude_vld_rght), 
+	.band_to_check(B3), .start(iDUT.seq_low), .smpl_vld(iDUT.vld));
+
+
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//							Following test cases are not self-checking									       //
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	// Test Case 6: Pass all bands with unity gain. Check if output and input signals match.
+	all_bands(.pots(pots), .clk(clk));
+	
+
+	// Test Case 7: Play next song
+	change_song(.pots(pots), .clk(clk), .btns(buttons), .btn_to_test(NXT));
+
+	// Test Case 8: Play prev song
+	change_song(.pots(pots), .clk(clk), .btns(buttons), .btn_to_test(PRV));
+
+
+	$stop;
+end
+
+
+always
+  #5 clk = ~ clk;
+
+  
+endmodule
