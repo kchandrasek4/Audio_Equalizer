@@ -1,0 +1,67 @@
+read_file -format sverilog {../Equalizer.sv  ../SubModules/A2D_intf.sv	  ../SubModules/LED.sv ../SubModules/band_scale.sv	  ../SubModules/low_freq_queue.sv  ../SubModules/bit_cntr5.sv	  ../SubModules/PB_release.sv   ../SubModules/BT_intf.sv	  ../SubModules/PDM.sv   ../SubModules/EQ_engine.sv	  ../SubModules/rst_synch.sv   ../SubModules/FIR_B1.sv		  ../SubModules/SCLK_div.sv   ../SubModules/FIR_B2.sv		  ../SubModules/slide_intf.sv ../SubModules/FIR_B3.sv		  ../SubModules/snd_cmd.sv  ../SubModules/FIR_HP.sv ../SubModules/SPI_data_shreg.sv  ../SubModules/FIR_LP.sv		  ../SubModules/SPI_mnrch.sv    ../SubModules/high_freq_queue.sv  ../SubModules/spkr_drv.sv  ../SubModules/UART.sv  ../SubModules/I2S_Serf.sv ../SubModules/cmdROM.v	  ../SubModules/ROM_B3.v  ../SubModules/dualPort1024x16.v  ../SubModules/ROM_HP.v  ../SubModules/dualPort1536x16.v  ../SubModules/ROM_LP.v  ../SubModules/resp_ROM.v	 ../SubModules/tone_ROM_lft.v  ../SubModules/ROM_B1.v		 ../SubModules/tone_ROM_rght.v  ../SubModules/ROM_B2.v}
+current_design Equalizer
+
+##############################
+# Constrain and assign clock #
+##############################
+create_clock -name "clk" -period 3 {clk} 
+#333 MHz, 3ns
+set_dont_touch_network [find port clk]
+set_clock_uncertainty 0.125 clk
+
+##############################
+# Ignore memories in synthesis#
+##############################
+set_dont_touch_network [find design dualPort*]
+set_dont_touch_network [find design ROM_*]
+set_dont_touch_network [find design cmdROM]
+set_dont_touch_network [get_net iRST/rst_n]
+##############################################
+# Constrain input timings and Drive strength #
+##############################################
+set prim_inputs [remove_from_collection [all_inputs] [find port clk]]
+set_input_delay -clock clk 0.75 $prim_inputs
+
+set_driving_cell -lib_cell NAND2X1_LVT -library\
+		     saed32lvt_tt0p85v25c $prim_inputs
+
+ 
+#####################################
+# Constrain output timings and load #
+#####################################
+set_output_delay -clock clk 0.75 [all_outputs]
+set_load 50 [all_outputs] 
+#default unit is fF
+
+##################################
+# Set wireload & transition time #
+##################################
+set_max_transition 0.125 [current_design]
+set_wire_load_model -name 16000 -library saed32lvt_tt0p85v25c
+
+
+##########################
+# Now kick off synthesis #
+##########################
+compile -map_effort high 
+
+#####################
+# Fix Violation #
+#####################
+set_fix_hold clk
+
+#####################
+# Flatten hierarchy #
+#####################
+ungroup -all -flatten
+
+
+
+###############
+# 2nd Compile #
+###############
+compile -map_effort high 
+report_timing -delay max > timing_max.txt
+report_timing -delay min > timing_min.txt
+report_area > Equalizer_area.rpt	
+write -format verilog Equalizer -output Equalizer.vg

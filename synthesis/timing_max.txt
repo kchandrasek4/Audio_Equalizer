@@ -1,0 +1,88 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'Equalizer' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : Equalizer
+Version: T-2022.03-SP3
+Date   : Fri Apr 28 23:56:52 2023
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt0p85v25c   Library: saed32lvt_tt0p85v25c
+Wire Load Model Mode: enclosed
+
+  Startpoint: iEQ/fir_hp_dut/rght_conv_sum_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: iEQ/fir_hp_dut/rght_conv_sum_reg[30]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Equalizer          16000                 saed32lvt_tt0p85v25c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  iEQ/fir_hp_dut/rght_conv_sum_reg[0]/CLK (DFFARX1_LVT)
+                                                          0.00 #     0.00 r
+  iEQ/fir_hp_dut/rght_conv_sum_reg[0]/QN (DFFARX1_LVT)
+                                                          0.06       0.06 f
+  U5790/Y (NOR3X0_LVT)                                    0.07       0.14 r
+  iEQ/fir_hp_dut/add_44/U1_1/CO (FADDX1_LVT)              0.08       0.21 r
+  iEQ/fir_hp_dut/add_44/U1_2/CO (FADDX1_LVT)              0.08       0.30 r
+  iEQ/fir_hp_dut/add_44/U1_3/CO (FADDX1_LVT)              0.08       0.38 r
+  iEQ/fir_hp_dut/add_44/U1_4/CO (FADDX1_LVT)              0.08       0.46 r
+  iEQ/fir_hp_dut/add_44/U1_5/CO (FADDX1_LVT)              0.08       0.54 r
+  iEQ/fir_hp_dut/add_44/U1_6/CO (FADDX1_LVT)              0.08       0.62 r
+  iEQ/fir_hp_dut/add_44/U1_7/CO (FADDX1_LVT)              0.08       0.70 r
+  iEQ/fir_hp_dut/add_44/U1_8/CO (FADDX1_LVT)              0.08       0.79 r
+  iEQ/fir_hp_dut/add_44/U1_9/CO (FADDX1_LVT)              0.08       0.87 r
+  iEQ/fir_hp_dut/add_44/U1_10/CO (FADDX1_LVT)             0.08       0.95 r
+  iEQ/fir_hp_dut/add_44/U1_11/CO (FADDX1_LVT)             0.08       1.03 r
+  iEQ/fir_hp_dut/add_44/U1_12/CO (FADDX1_LVT)             0.08       1.11 r
+  iEQ/fir_hp_dut/add_44/U1_13/CO (FADDX1_LVT)             0.08       1.19 r
+  iEQ/fir_hp_dut/add_44/U1_14/CO (FADDX1_LVT)             0.08       1.27 r
+  iEQ/fir_hp_dut/add_44/U1_15/CO (FADDX1_LVT)             0.08       1.36 r
+  iEQ/fir_hp_dut/add_44/U1_16/CO (FADDX1_LVT)             0.08       1.44 r
+  iEQ/fir_hp_dut/add_44/U1_17/CO (FADDX1_LVT)             0.08       1.52 r
+  iEQ/fir_hp_dut/add_44/U1_18/CO (FADDX1_LVT)             0.08       1.60 r
+  iEQ/fir_hp_dut/add_44/U1_19/CO (FADDX1_LVT)             0.08       1.68 r
+  iEQ/fir_hp_dut/add_44/U1_20/CO (FADDX1_LVT)             0.08       1.77 r
+  iEQ/fir_hp_dut/add_44/U1_21/CO (FADDX1_LVT)             0.08       1.85 r
+  iEQ/fir_hp_dut/add_44/U1_22/CO (FADDX1_LVT)             0.08       1.93 r
+  iEQ/fir_hp_dut/add_44/U1_23/CO (FADDX1_LVT)             0.08       2.01 r
+  iEQ/fir_hp_dut/add_44/U1_24/CO (FADDX1_LVT)             0.08       2.09 r
+  iEQ/fir_hp_dut/add_44/U1_25/CO (FADDX1_LVT)             0.08       2.18 r
+  iEQ/fir_hp_dut/add_44/U1_26/CO (FADDX1_LVT)             0.08       2.26 r
+  iEQ/fir_hp_dut/add_44/U1_27/CO (FADDX1_LVT)             0.08       2.34 r
+  iEQ/fir_hp_dut/add_44/U1_28/CO (FADDX1_LVT)             0.08       2.42 r
+  iEQ/fir_hp_dut/add_44/U1_29/CO (FADDX1_LVT)             0.08       2.50 r
+  iEQ/fir_hp_dut/add_44/U1_30/S (FADDX1_LVT)              0.10       2.61 f
+  U5243/Y (AO22X1_LVT)                                    0.04       2.65 f
+  iEQ/fir_hp_dut/rght_conv_sum_reg[30]/D (DFFARX2_LVT)
+                                                          0.01       2.66 f
+  data arrival time                                                  2.66
+
+  clock clk (rise edge)                                   3.00       3.00
+  clock network delay (ideal)                             0.00       3.00
+  clock uncertainty                                      -0.12       2.88
+  iEQ/fir_hp_dut/rght_conv_sum_reg[30]/CLK (DFFARX2_LVT)
+                                                          0.00       2.88 r
+  library setup time                                     -0.03       2.84
+  data required time                                                 2.84
+  --------------------------------------------------------------------------
+  data required time                                                 2.84
+  data arrival time                                                 -2.66
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.18
+
+
+1
